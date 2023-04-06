@@ -17,7 +17,7 @@ def main():
     self_ctx = webrtc_streamer(
         key="self",
         mode=WebRtcMode.SENDRECV,
-        video_frame_callback=video_frame_callback()
+        video_frame_callback=video_frame_callback(),
         client_settings=ClientSettings(
             rtc_configuration={  # Add this line
       # "iceServers": [{"urls": ["stun:stun4.l.google.com:19302"]}]
