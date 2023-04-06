@@ -129,7 +129,21 @@ def main():
         mode=WebRtcMode.SENDRECV,
         client_settings=ClientSettings(
             rtc_configuration={
-                "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+               # "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+               "iceServers": [{
+                  "urls": [ "stun:ws-turn4.xirsys.com" ]
+               }, {
+                  "username": "UIvu1OpNVH8Aw_IWuAYaSU2o6WaTD2hyykLgfqkO563ivxUWWAfnguGDIar3AaoaAAAAAGQrHyp2aXNobnV0ZWph",
+                  "credential": "eebe884a-d24f-11ed-9d96-0242ac140004",
+                  "urls": [
+                      "turn:ws-turn4.xirsys.com:80?transport=udp",
+                      "turn:ws-turn4.xirsys.com:3478?transport=udp",
+                      "turn:ws-turn4.xirsys.com:80?transport=tcp",
+                      "turn:ws-turn4.xirsys.com:3478?transport=tcp",
+                      "turns:ws-turn4.xirsys.com:443?transport=tcp",
+                      "turns:ws-turn4.xirsys.com:5349?transport=tcp"
+                  ]
+               }]
             },
             media_stream_constraints={"video": True, "audio": True},
         ),
@@ -156,7 +170,21 @@ def main():
             mode=WebRtcMode.RECVONLY,
             client_settings=ClientSettings(
                 rtc_configuration={
-                    "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+                   # "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+                   "iceServers": [{
+                      "urls": [ "stun:ws-turn4.xirsys.com" ]
+                   }, {
+                      "username": "UIvu1OpNVH8Aw_IWuAYaSU2o6WaTD2hyykLgfqkO563ivxUWWAfnguGDIar3AaoaAAAAAGQrHyp2aXNobnV0ZWph",
+                      "credential": "eebe884a-d24f-11ed-9d96-0242ac140004",
+                      "urls": [
+                          "turn:ws-turn4.xirsys.com:80?transport=udp",
+                          "turn:ws-turn4.xirsys.com:3478?transport=udp",
+                          "turn:ws-turn4.xirsys.com:80?transport=tcp",
+                          "turn:ws-turn4.xirsys.com:3478?transport=tcp",
+                          "turns:ws-turn4.xirsys.com:443?transport=tcp",
+                          "turns:ws-turn4.xirsys.com:5349?transport=tcp"
+                      ]
+                   }]
                 },
                 media_stream_constraints={
                     "video": True,
