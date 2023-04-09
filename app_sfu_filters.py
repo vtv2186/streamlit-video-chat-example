@@ -4,6 +4,7 @@ from pathlib import Path
 import av
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
 import streamlit as st
 from streamlit_server_state import server_state, server_state_lock
 from streamlit_webrtc import ClientSettings, WebRtcMode, webrtc_streamer
@@ -98,6 +99,10 @@ def main():
         key="filter-type",
     )
     draw_rect = st.checkbox("Draw rect (for debug)")
+
+    fig_place = st.empty()
+
+    fig, [ax_time, ax_freq] = plt.subplots(2, 1, gridspec_kw={"top": 1.5, "bottom": 0.2})
 
     def video_frame_callback(frame: av.VideoFrame) -> av.VideoFrame:
         img = frame.to_ndarray(format="bgr24")
