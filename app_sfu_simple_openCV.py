@@ -2,15 +2,20 @@ from streamlit_server_state import server_state, server_state_lock
 from streamlit_webrtc import ClientSettings, WebRtcMode, webrtc_streamer
 import av
 
-def video_frame_callback(frame):
-    img = frame.to_ndarray(format="bgr24")
 
-    flipped = img[::-1,:,:]
-
-    return av.VideoFrame.from_ndarray(flipped, format="bgr24")
 
 
 def main():
+   
+    
+   def video_frame_callback(frame):
+       img = frame.to_ndarray(format="bgr24")
+
+       flipped = img[::-1,:,:]
+
+       return av.VideoFrame.from_ndarray(flipped, format="bgr24")
+    
+   
     if "webrtc_contexts" not in server_state:
         server_state["webrtc_contexts"] = []
 

@@ -1,6 +1,7 @@
 from streamlit_server_state import server_state, server_state_lock
 from streamlit_webrtc import ClientSettings, WebRtcMode, webrtc_streamer
-
+import streamlit as st
+import matplotlib as plt
 
 def main():
     if "webrtc_contexts" not in server_state:
@@ -19,6 +20,9 @@ def main():
         ),
         sendback_audio=False,
     )
+    fig_place = st.empty()
+
+    fig, [ax_time, ax_freq] = plt.subplots(2, 1, gridspec_kw={"top": 1.5, "bottom": 0.2})
 
     with server_state_lock["webrtc_contexts"]:
         webrtc_contexts = server_state["webrtc_contexts"]

@@ -148,6 +148,7 @@ def main():
             media_stream_constraints={"video": True, "audio": True},
         ),
         video_frame_callback=video_frame_callback,
+        
         sendback_audio=False,
     )
 
